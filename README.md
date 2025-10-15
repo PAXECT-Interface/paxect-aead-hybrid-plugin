@@ -300,7 +300,6 @@ please consider starring the repo ⭐ — it helps others discover and strengthe
 | [PAXECT Link Plugin](https://github.com/<your-org>/paxect-link-plugin)         | Cross-OS / Network bridge layer          |
 | [PAXECT AES Plugin](https://github.com/<your-org>/paxect-aes-plugin)           | AES-only encryption layer                |
 
-```
 
 
 
