@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="ChatGPT%20Image%202%20okt%202025%2C%2022_33_51.png" alt="PAXECT logo" width="200"/>
+</p>
+
+---
+
 [![Tests](https://img.shields.io/badge/Tests-passing-brightgreen.svg)](../../actions)
 [![Coverage](https://img.shields.io/badge/Coverage-96%25-blue.svg)](../../actions)
 [![Framework](https://img.shields.io/badge/Pytest-verified-lightgrey.svg)](../../)
@@ -212,6 +218,15 @@ aead_test:
 
 All test utilities and scripts are released under the same license as the core engine:
 **Apache 2.0 License** — © 2025 PAXECT Systems. All rights reserved.
+
+
+
+---
+<p align="center">
+  <img src="ChatGPT%20Image%202%20okt%202025%2C%2022_33_51.png" alt="PAXECT logo" width="200"/>
+</p>
+
+---
 
 
 
