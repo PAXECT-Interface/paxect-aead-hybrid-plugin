@@ -284,10 +284,10 @@ please consider starring the repo ⭐ — it helps others discover and strengthe
 * **Contributions:** Reviewed by maintainers; merges follow CODEOWNERS policy.
 * **Trademark:** The PAXECT name/logo may not be reused without written permission.
 
+
+
 ✅ **Deterministic · Secure · Reproducible · Cross-Platform**
 
-© 2025 PAXECT Systems.
-Authenticated encryption for the modern enterprise.
 
 ---
 
@@ -301,6 +301,9 @@ Authenticated encryption for the modern enterprise.
 | [PAXECT AES Plugin](https://github.com/<your-org>/paxect-aes-plugin)           | AES-only encryption layer                |
 
 ```
+
+
+
 
 
 © 2025 PAXECT Systems.
