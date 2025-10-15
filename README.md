@@ -271,6 +271,10 @@ please consider starring the repo ⭐ — it helps others discover and strengthe
 * Deterministic reproducibility validation
 * CI/CD encryption performance certification
 
+ **How to get involved**
+- [Become a GitHub Sponsor](https://github.com/sponsors/PAXECT-Interface)  
+
+
 **Contact:**
 📧 [PAXECT-Team@outlook.com](mailto:PAXECT-Team@outlook.com)
 
