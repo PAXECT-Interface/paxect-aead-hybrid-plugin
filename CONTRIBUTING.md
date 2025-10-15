@@ -1,7 +1,5 @@
 
 
----
-
 #  **Contributing Guidelines**
 
 Thank you for your interest in contributing to the **PAXECT AEAD Hybrid Plugin**.
@@ -109,7 +107,6 @@ For confidential security concerns, report privately to:
 * **Discussions:** Technical proposals or cryptographic architecture topics
 * **Security:** Coordinated disclosure via private email
 
----
 
 ##  License
 
@@ -119,4 +116,5 @@ and are subject to **PAXECT’s deterministic, audit-compliant development polic
 ---
 
  **Deterministic · Secure · Offline · Enterprise-Ready**
-© 2025 PAXECT Systems — Authenticated Encryption for the Modern Enterprise
+ 
+ © 2025 PAXECT Systems — Authenticated Encryption for the Modern Enterprise
