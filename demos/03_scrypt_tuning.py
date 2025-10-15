@@ -2,84 +2,102 @@
 # SPDX-License-Identifier: Apache-2.0
 """
 PAXECT AEAD Hybrid Plugin — Demo 03: Scrypt Parameter Tuning
-v1.0.1
-Measures encryption performance using different Scrypt KDF parameters.
+v1.0.2
+Benchmarks different Scrypt (N, r, p) configurations to balance
+security strength vs. performance for the key-derivation phase.
 """
 
-import os, subprocess, sys, tempfile, time, hashlib
+import os
+import sys
+import time
+import json
+import tempfile
+import subprocess
+from datetime import datetime, timezone
 
 PLUGIN = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "paxect_aead_enterprise.py"))
 PASSWORD = "demo123"
 
-# Create 2 MiB of random test data
-DATA = ("PAXECT AEAD Demo 03 - Scrypt tuning test\n").encode("utf-8") + os.urandom(2 * 1024 * 1024)
-
-# Test settings: (N_log2, r, p)
-SETTINGS = [
+# Scrypt parameter sets to benchmark
+PARAM_SETS = [
     (14, 8, 1),
     (15, 8, 1),
     (16, 8, 1),
     (14, 16, 2),
 ]
 
-def sha256(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
 
 def run_encrypt_decrypt(n_log2, r, p):
-    """Run one full encrypt/decrypt cycle and measure time."""
-    with tempfile.TemporaryDirectory(prefix="paxect_demo03_") as tmp:
-        src = os.path.join(tmp, "input.bin")
-        enc = os.path.join(tmp, "output.aead")
-        dec = os.path.join(tmp, "decrypted.bin")
+    """Encrypt and decrypt using given Scrypt parameters; return (enc_time, dec_time, ok)."""
+    tmp = tempfile.mkdtemp(prefix="paxect_demo03_")
+    src = os.path.join(tmp, "input.bin")
+    enc = os.path.join(tmp, "output.aead")
+    dec = os.path.join(tmp, "decrypted.bin")
 
-        with open(src, "wb") as f:
-            f.write(DATA)
+    # Create 2 MiB of random test data
+    with open(src, "wb") as f:
+        f.write(b"PAXECT AEAD Demo 03 - Scrypt tuning test\n")
+        f.write(os.urandom(2 * 1024 * 1024))
 
-        # Encrypt
-        t0 = time.time()
+    # Encrypt
+    t0 = time.perf_counter()
+    with open(src, "rb") as fin, open(enc, "wb") as fout:
         subprocess.run(
             [
                 sys.executable, PLUGIN,
-                "--mode", "encrypt",
-                "--cipher", "auto",
+                "--mode", "encrypt", "--cipher", "auto",
                 "--pass", PASSWORD,
                 "--scrypt-n-log2", str(n_log2),
                 "--scrypt-r", str(r),
                 "--scrypt-p", str(p),
             ],
-            stdin=open(src, "rb"),
-            stdout=open(enc, "wb"),
-            check=True,
+            stdin=fin, stdout=fout, check=True, stderr=subprocess.DEVNULL,
         )
-        t_enc = time.time() - t0
+    t1 = time.perf_counter()
 
-        # Decrypt
-        t1 = time.time()
+    # Decrypt
+    with open(enc, "rb") as fin, open(dec, "wb") as fout:
         subprocess.run(
-            [
-                sys.executable, PLUGIN,
-                "--mode", "decrypt",
-                "--pass", PASSWORD,
-            ],
-            stdin=open(enc, "rb"),
-            stdout=open(dec, "wb"),
-            check=True,
+            [sys.executable, PLUGIN, "--mode", "decrypt", "--pass", PASSWORD],
+            stdin=fin, stdout=fout, check=True, stderr=subprocess.DEVNULL,
         )
-        t_dec = time.time() - t1
+    t2 = time.perf_counter()
 
-        # Verify
-        h1 = sha256(open(src, "rb").read())
-        h2 = sha256(open(dec, "rb").read())
-        return (n_log2, r, p, round(t_enc, 3), round(t_dec, 3), h1 == h2)
+    # Compare plaintexts
+    ok = open(src, "rb").read() == open(dec, "rb").read()
+    return round(t1 - t0, 3), round(t2 - t1, 3), ok
+
 
 def main():
-    print("=== PAXECT AEAD Demo 03 — Scrypt Parameter Tuning ===\n")
-    print(f"{'N_log2':>7} {'r':>3} {'p':>3} | {'Enc(s)':>7} {'Dec(s)':>7} | Result")
-    print("-" * 40)
-    for n_log2, r, p in SETTINGS:
-        n, r_, p_, te, td, ok = run_encrypt_decrypt(n_log2, r, p)
-        print(f"{n:7d} {r_:3d} {p_:3d} | {te:7.3f} {td:7.3f} | {'✅ OK' if ok else '❌ FAIL'}")
-    print("\n=== Demo 03 completed successfully ===")
+    print("=== PAXECT AEAD Demo 03 — Scrypt Parameter Tuning ===")
+    print(f"Local time : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"UTC time   : {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S %Z')}")
+    print("\n N_log2   r   p |  Enc(s)  Dec(s) | Result")
+    print("----------------------------------------")
+
+    results = []
+    for n_log2, r, p in PARAM_SETS:
+        try:
+            enc_t, dec_t, ok = run_encrypt_decrypt(n_log2, r, p)
+            status = "✅ OK" if ok else "❌ FAIL"
+            print(f"{n_log2:7d} {r:3d} {p:3d} | {enc_t:7.3f} {dec_t:7.3f} | {status}")
+            results.append({
+                "N_log2": n_log2, "r": r, "p": p,
+                "enc_time": enc_t, "dec_time": dec_t, "ok": ok,
+            })
+        except Exception as e:
+            print(f"{n_log2:7d} {r:3d} {p:3d} |   error   | {e}")
+            results.append({"N_log2": n_log2, "r": r, "p": p, "error": str(e)})
+
+    # Save benchmark results
+    log_path = os.path.join(tempfile.gettempdir(), "paxect_demo03_results.json")
+    with open(log_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2)
+
+    print(f"\nResults saved to: {log_path}")
+    print("=== Demo 03 completed successfully ===")
+
 
 if __name__ == "__main__":
     main()
+
