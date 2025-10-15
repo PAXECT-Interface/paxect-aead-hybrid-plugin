@@ -1,3 +1,6 @@
+[![Tests](https://img.shields.io/badge/Tests-passing-brightgreen.svg)](../../actions)
+[![Coverage](https://img.shields.io/badge/Coverage-96%25-blue.svg)](../../actions)
+[![Framework](https://img.shields.io/badge/Pytest-verified-lightgrey.svg)](../../)
 
 
 
