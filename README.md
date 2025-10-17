@@ -311,18 +311,6 @@ please consider starring the repo ⭐ — it helps others discover and strengthe
 
 ---
 
-## 🔗 Related Repositories
-
-| Component                                                                      | Purpose                                  |
-| ------------------------------------------------------------------------------ | ---------------------------------------- |
-| [PAXECT Core](https://github.com/<your-org>/paxect-core)                       | Deterministic container format engine    |
-| [PAXECT SelfTune Plugin](https://github.com/<your-org>/paxect-selftune-plugin) | Adaptive runtime and performance control |
-| [PAXECT Link Plugin](https://github.com/<your-org>/paxect-link-plugin)         | Cross-OS / Network bridge layer          |
-| [PAXECT AES Plugin](https://github.com/<your-org>/paxect-aes-plugin)           | AES-only encryption layer                |
-
-
-
-
 
 
 © 2025 PAXECT Systems.
