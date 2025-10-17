@@ -316,6 +316,7 @@ please consider starring the repo ⭐ — it helps others discover and strengthe
 © 2025 PAXECT Systems.
 Authenticated encryption for the modern enterprise.
 
+---
 
 <p align="center">
   <img src="ChatGPT%20Image%202%20okt%202025%2C%2022_33_51.png" alt="PAXECT logo" width="200"/>
