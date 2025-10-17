@@ -2,15 +2,17 @@
   <img src="ChatGPT%20Image%202%20okt%202025%2C%2022_33_51.png" alt="PAXECT logo" width="200"/>
 </p>
 
-Security Policy
-Supported Versions
+# Security Policy
 
-Only the latest main branch and tagged releases are actively supported and reviewed for security issues.
+## Supported Versions
+
+Only the latest **main branch** and tagged releases are actively supported and reviewed for security issues.  
 Older versions are provided as-is without any security guarantee.
-Version 	Supported
-main 	✅
-1.x 	⚠️ Limited (best effort)
-Reporting a Vulnerability
+
+| Version | Supported |
+|----------|------------|
+| main     | ✅ |
+| 1.x      | ⚠️ Limited (best effort) |
 
 If you discover a security vulnerability, please report it privately:
 
