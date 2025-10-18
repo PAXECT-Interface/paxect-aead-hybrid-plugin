@@ -453,40 +453,40 @@ Authenticated encryption for the modern enterprise.
 
 
 ---
-## 🔑 Keywords & Topics
+##  Keywords & Topics
 
 **PAXECT AEAD Hybrid Plugin** — deterministic, cross-platform authenticated encryption layer providing reproducible and verifiable data protection across systems and pipelines.
 Built for zero-dependency security with **AES-GCM + ChaCha20-Poly1305**, powered by **PAXECT Core v42**.
 
 ---
 
-### 🧩 Core / Encryption
+###  Core / Encryption
 
 `paxect`, `aead`, `hybrid`, `aes-gcm`, `chacha20-poly1305`, `authenticated-encryption`, `deterministic`, `reproducible`, `streaming`, `secure-io`, `cross-platform`
 
-### 🔐 Integrity & Validation
+###  Integrity & Validation
 
 `aead-tag`, `crc32`, `sha256`, `checksum`, `data-integrity`, `verification`, `fail-safe`, `bit-identical`, `tamper-detection`, `deterministic-hash`
 
-### ⚙️ Performance & Runtime
+###  Performance & Runtime
 
 `hybrid-mode`, `auto-cipher`, `selftune`, `offline`, `buffering`, `throughput`, `adaptive-encryption`, `secure-performance`, `zero-ai`
 
-### 🌍 Interoperability
+###  Interoperability
 
 `cross-os`, `linux`, `macos`, `windows`, `android`, `ios`, `embedded`, `mobile`, `edge-computing`, `cli-plugin`, `api-integration`
 
-### 💼 Compliance & Deployment
+###  Compliance & Deployment
 
 `audit-compliance`, `privacy-by-default`, `enterprise`, `airgap`, `gdpr`, `traceability`, `offline-mode`, `forensics`, `secure-ci`, `reproducible-results`
 
-### 🔗 Ecosystem
+###  Ecosystem
 
 `paxect-core`, `paxect-selftune`, `paxect-link`, `paxect-aes`, `deterministic-pipeline`, `audit-ready`, `enterprise-suite`, `zero-ai`
 
 ---
 
-### ✅ Launch Summary — October 2025
+###  Launch Summary — October 2025
 
 Production-ready · Deterministic across OS and CPU
 All 7 demos validated on Ubuntu 24.04 LTS · macOS 14 Sonoma · Windows 11 Pro
