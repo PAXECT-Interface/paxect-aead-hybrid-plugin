@@ -219,6 +219,192 @@ It supports structured logging (`.jsonl`), time-stamped traceability, and determ
 
 ---
 
+
+# PAXECT Core Complete
+
+
+
+**Deterministic, offline-first runtime for secure, reproducible data pipelines.**  
+Cross-platform, self-tuning, and fully auditable — built for real-world enterprise and open-source innovation.
+
+---
+
+##  Overview
+
+**PAXECT Core Complete** is the reference implementation of the PAXECT ecosystem.  
+It unifies the verified modules — Core, AEAD Hybrid, Polyglot, SelfTune, and Link —  
+into one reproducible, cross-OS runtime with **10 integrated demos** and full observability.
+
+### Core principles
+- **Determinism first** — bit-identical results across systems  
+- **Offline-first** — no network or telemetry unless explicitly enabled  
+- **Audit-ready** — human summaries + machine-readable JSON logs  
+- **Cross-platform** — Linux · macOS · Windows · FreeBSD · OpenBSD · Android · iOS  
+- **Zero-dependency security** — Hybrid AES-GCM / ChaCha20-Poly1305  
+- **Adaptive control** — SelfTune 5-in-1 plugin with ε-greedy logic  
+
+---
+
+##  Installation
+
+### Requirements
+- **Python 3.9 – 3.12** (recommended 3.11+)
+- Works on **Linux**, **macOS**, **Windows**, **FreeBSD**, **OpenBSD**, **Android (Termux)**, and **iOS (Pyto)**
+- No external dependencies or internet connection required
+
+### Optional utilities
+Some demos use these standard tools if available:
+- `bash` (for `demo_05_link_smoke.sh`)
+- `dos2unix` (for normalizing line endings)
+- `jq` (for formatting JSON output)
+
+### Install
+```bash
+git clone https://github.com/yourname/paxect-core-complete.git
+cd paxect-core-complete
+python3 -m venv venv
+source venv/bin/activate      # on Windows: venv\Scripts\activate
+pip install -e .
+````
+
+Verify:
+
+```bash
+python3 -c "import paxect_core; print('PAXECT Core OK')"
+```
+
+Then run any of the demos from the `demos/` folder.
+
+---
+
+## 📁 Repository structure
+
+```
+paxect-core-complete/
+├── paxect_core.py
+├── paxect_aead_hybrid_plugin.py
+├── paxect_polyglot_plugin.py
+├── paxect_selftune_plugin.py
+├── paxect_link_plugin.py
+├── demos/
+│   ├── demo_01_quick_start.py
+│   ├── demo_02_integration_loop.py
+│   ├── demo_03_safety_throttle.py
+│   ├── demo_04_metrics_health.py
+│   ├── demo_05_link_smoke.sh
+│   ├── demo_06_polyglot_bridge.py
+│   ├── demo_07_selftune_adaptive.py
+│   ├── demo_08_secure_multichannel_aead_hybrid.py
+│   ├── demo_09_enterprise_all_in_one.py
+│   └── demo_10_enterprise_stability_faults.py
+├── test_paxect_all_in_one.py
+├── ENTERPRISE_PACK_OVERVIEW.md
+├── SECURITY.md
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── TRADEMARKS.md
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+##  Modules
+
+| Module                           | Purpose                                           |
+| -------------------------------- | ------------------------------------------------- |
+| **paxect_core.py**               | Deterministic runtime · encode/decode · checksums |
+| **paxect_aead_hybrid_plugin.py** | Hybrid AES-GCM / ChaCha20-Poly1305 encryption     |
+| **paxect_polyglot_plugin.py**    | Cross-language bridge · UTF-safe transformation   |
+| **paxect_selftune_plugin.py**    | Adaptive ε-greedy self-tuning · persistent state  |
+| **paxect_link_plugin.py**        | Secure relay · inbox/outbox · policy validation   |
+
+---
+
+## 🧪 Demo suite (01 – 10)
+
+Run the demos from the repository root:
+
+```bash
+python3 demos/demo_01_quick_start.py               # Basic sanity check
+python3 demos/demo_02_integration_loop.py          # Adaptive loop cycles
+python3 demos/demo_03_safety_throttle.py           # Short/long window throttle
+python3 demos/demo_04_metrics_health.py            # Observability endpoints
+bash    demos/demo_05_link_smoke.sh                # Link + policy hash check
+python3 demos/demo_06_polyglot_bridge.py           # Cross-system checksum
+python3 demos/demo_07_selftune_adaptive.py         # ε-adaptive learning
+python3 demos/demo_08_secure_multichannel_aead_hybrid.py  # Multi-channel AEAD test
+python3 demos/demo_09_enterprise_all_in_one.py     # Full integrated validation
+python3 demos/demo_10_enterprise_stability_faults.py       # 2 min · 5 min · 10 min stability run
+```
+
+All demos produce structured JSON output under `/tmp/`.
+
+---
+
+##  Testing & Verification
+
+Internal `pytest` and smoke-test suites are maintained locally.
+End-users can rely on the integrated demo suite (01–10) for verification.
+Each demo is self-contained, prints its own status, and exits cleanly.
+
+---
+
+## 🔒 Security & Privacy
+
+* Default mode: **offline**, **no telemetry**
+* Sensitive data handled via environment variables
+* CVE hygiene follows [`SECURITY.md`](./SECURITY.md)
+* AEAD Hybrid is **simulation-grade**; for production, use a verified crypto library or HSM
+
+---
+
+## 🏢 Enterprise Pack
+
+See [`ENTERPRISE_PACK_OVERVIEW.md`](./ENTERPRISE_PACK_OVERVIEW.md)
+for roadmap and integration notes.
+
+Includes:
+
+* HSM / KMS / Vault integration
+* Extended policy + audit engine
+* Prometheus / Grafana / Splunk / Kafka connectors
+* Deployment assets (systemd, Helm, Docker)
+* Compliance documentation (ISO · IEC · NIST)
+
+---
+
+## 🤝 Community & Governance
+
+* **License:** Apache-2.0
+* **Ownership:** All PAXECT products and trademarks remain property of the Owner
+* **Contributions:** PRs welcome · feature branches only · CI must pass
+* **Core merges:** Owner approval required for Core / brand-sensitive repos
+* **Community conduct:** see [`CODE_OF_CONDUCT.md`](./CODE_OF_CONDUCT.md)
+
+Join as maintainer or contributor — see [`CONTRIBUTING.md`](./CONTRIBUTING.md) for roles and expectations.
+
+
+### 🔄 Updates & Maintenance
+
+PAXECT Core Complete follows an **open contribution model**.
+
+- Updates, bugfixes, and improvements depend on **community and maintainer availability**.
+- There is **no fixed release schedule** — stability and determinism are prioritized over speed.
+- Enterprises and contributors are encouraged to submit issues or pull requests for any enhancements.
+- The project owner focuses on innovation and architectural guidance rather than continuous support.
+
+In short: updates arrive when they are ready — verified, deterministic, and tested across platforms.
+
+
+---
+
+## 📢 Key principles
+
+> Determinism · Privacy · Reproducibility · Cross-Platform · Transparency
+
+
+
 ## Plugins (official)
 
 
