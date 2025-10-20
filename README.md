@@ -69,29 +69,41 @@ plug-and-play with zero dependencies and no vendor lock-in.
 
 ---
 
+
 ## 🚀 Demos Included
 
-All demos are deterministic, self-contained, and safe to run in local or CI environments.
+All AEAD demos are **deterministic**, **self-contained**, and **safe to run locally or in CI pipelines**.
+Each demo validates a different reliability or security aspect of the PAXECT AEAD Enterprise Engine.
 
-| Demo | Script                              | Description                           | Status |
-| ---- | ----------------------------------- | ------------------------------------- | ------ |
-| 01   | `demo_01_quick_encrypt_decrypt.py`  | Quick AEAD encrypt/decrypt round-trip | ✅      |
-| 02   | `demo_02_cli_stream_pipe.sh`        | Stream encryption via stdin/stdout    | ✅      |
-| 03   | `demo_03_scrypt_tuning.py`          | Scrypt parameter tuning benchmark     | ✅      |
-| 04   | `demo_04_aead_integrity_fail.py`    | Tamper detection (auth tag fail test) | ✅      |
-| 05   | `demo_05_enterprise_integration.py` | Enterprise logging + SHA-256 verify   | ✅      |
-| 06   | `demo_06_parallel_throughput.py`    | Parallel performance benchmark        | ✅      |
-| 07   | `demo_07_cross_platform_smoke.sh`   | Cross-platform determinism check      | ✅      |
+| Demo | Script                             | Description                                            | Status |
+| ---- | ---------------------------------- | ------------------------------------------------------ | ------ |
+| 01   | `demo_1_quick_encrypt_decrypt.py`  | Quick AEAD encrypt→decrypt round-trip verification     | ✅      |
+| 02   | `demo_2_cli_stream_pipe.sh`        | Stream encryption using stdin ↔ stdout pipes           | ✅      |
+| 03   | `demo_3_scrypt_tuning.py`          | Scrypt parameter tuning and performance benchmark      | ✅      |
+| 04   | `demo_4_aead_integrity_fail.py`    | Tamper-detection test (auth-tag failure)               | ✅      |
+| 05   | `demo_5_enterprise_integration.py` | Enterprise integration + SHA-256 verification          | ✅      |
+| 06   | `demo_6_parallel_throughput.py`    | Parallel throughput and scalability benchmark          | ✅      |
+| 07   | `demo_7_cross_platform_smoke.sh`   | Cross-platform determinism check (Linux/macOS/Win)     | ✅      |
+| 08   | `demo_8_fail_and_recover.py`       | AEAD fail → self-recover demonstration (resilience)    | ✅      |
+| 09   | `demo_9_stress_test_aead.py`       | One-minute stability & reliability stress test (100 %) | ✅      |
 
-Run all demos sequentially:
+---
+
+### 🧩 Run all demos sequentially
 
 ```bash
 for d in demos/demo_*; do
-  echo "Running $d ..."
+  echo "▶ Running $d ..."
   chmod +x "$d"
   "$d"
 done
 ```
+
+Each demo runs fully offline, uses only local files, and produces deterministic results across platforms.
+Failures—if any—are logged to `/tmp/paxect_demo*/` with reproducible output for enterprise validation.
+
+
+
 
 ---
 
