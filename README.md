@@ -103,20 +103,38 @@ Each demo runs fully offline, uses only local files, and produces deterministic 
 Failures—if any—are logged to `/tmp/paxect_demo*/` with reproducible output for enterprise validation.
 
 
-
-
 ---
 
 ## 🧩 Architecture Overview
 
 ```text
 paxect-aead-hybrid-plugin/
-├── paxect_aead_enterprise.py    # Main plugin (AES-GCM + ChaCha20-Poly1305)
-├── demos/                       # Demo suite (1–7)
-├── tests/                       # Automated verification tests
-├── pytest.ini                   # Pytest configuration
-└── README.md                    # This document
+├── paxect_aead_enterprise.py     # Core AEAD engine (AES-GCM + ChaCha20-Poly1305)
+│                                 # Hybrid streaming encryption with Scrypt key derivation
+│                                 # Deterministic, cross-platform, offline-safe
+│
+├── demos/                        # Enterprise Demo Suite (1–9)
+│   ├── demo_1_quick_encrypt_decrypt.py    # Quick round-trip check
+│   ├── demo_2_cli_stream_pipe.sh          # Stream I/O test (stdin ↔ stdout)
+│   ├── demo_3_scrypt_tuning.py            # Scrypt parameter benchmark
+│   ├── demo_4_aead_integrity_fail.py      # Tamper detection / auth tag failure
+│   ├── demo_5_enterprise_integration.py   # Logging + SHA-256 verification
+│   ├── demo_6_parallel_throughput.py      # Parallel throughput benchmark
+│   ├── demo_7_cross_platform_smoke.sh     # Cross-platform determinism validation
+│   ├── demo_8_fail_and_recover.py         # AEAD fail → self-recover resilience test
+│   └── demo_9_stress_test_aead.py         # 1-minute continuous reliability stress test
+│
+├── tests/                       # Automated regression and integrity tests
+│   ├── test_determinism.py               # Verifies bit-identical output across runs
+│   ├── test_recovery_scenarios.py        # Simulates corrupted stream recovery
+│   └── test_cross_platform_equivalence.py# Confirms identical hashes on all OS targets
+│
+├── pytest.ini                    # Pytest configuration for deterministic runs
+└── README.md                     # Full documentation, demos, and enterprise guidance
 ```
+
+
+
 
 ---
 
