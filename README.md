@@ -2,9 +2,9 @@
   <img src="ChatGPT%20Image%202%20okt%202025%2C%2022_33_51.png" alt="PAXECT logo" width="200"/>
 </p>
 
----
 
-# 🌐 **PAXECT AEAD Hybrid Plugin — Authenticated Encryption for Every Platform**
+
+
 
 [![Star this repo](https://img.shields.io/badge/⭐%20Star-this%20repo-orange)](../../stargazers)
 [![CI](https://img.shields.io/badge/CI-passing-brightgreen.svg)](../../actions)
@@ -14,7 +14,8 @@
 [![Security](https://img.shields.io/badge/Security-responsible%20disclosure-informational)](./SECURITY.md)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 
----
+
+# 🌐 **PAXECT AEAD Hybrid Plugin — Authenticated Encryption for Every Platform**
 
 > Status: **v1.0.0 — Initial Public Release** (see Releases)
 
