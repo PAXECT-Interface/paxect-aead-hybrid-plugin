@@ -13,8 +13,8 @@
 [![Discussions](https://img.shields.io/badge/Discuss-join-blue)](../../discussions)
 [![Security](https://img.shields.io/badge/Security-responsible%20disclosure-informational)](./SECURITY.md)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
-<a href="https://github.com/PAXECT-Interface/paxect-selftune-plugin/releases/latest">
-  <img alt="Release" src="https://img.shields.io/github/v/release/PAXECT-Interface/paxect-selftune-plugin?label=selftune">
+<a href="https://github.com/PAXECT-Interface/paxect-aead-hybrid-plugin/releases/latest">
+  <img alt="Release" src="https://img.shields.io/github/v/release/PAXECT-Interface/paxect-aead-hybrid-plugin?label=aead-hybrid">
 </a>
 
 
