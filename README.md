@@ -24,7 +24,7 @@ It combines **AES-GCM** (for x86 servers) and **ChaCha20-Poly1305** (for ARM and
 
 Built for offline use, reproducible pipelines, and CI/CD automation, it powers everything from edge devices to enterprise cloud nodes.
 
-plug-and-play with zero dependencies and no vendor lock-in.
+Plug-and-play with zero dependencies and no vendor lock-in.
 
 > ⚙️ *One plugin. Two algorithms. Zero drift.*
 
