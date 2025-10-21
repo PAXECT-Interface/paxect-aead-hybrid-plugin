@@ -16,6 +16,8 @@
 
 ---
 
+> Status: **v1.0.0 — Initial Public Release** (see Releases)
+
 ## 🧩 Overview
 
 The **PAXECT AEAD Hybrid Plugin** provides secure, deterministic, and streaming **authenticated encryption** for files, pipelines, and enterprise systems.
