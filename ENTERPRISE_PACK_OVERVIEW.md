@@ -19,7 +19,7 @@ The **open-source foundation** remains free and Apache-2.0 licensed:
 - Polyglot plugin (cross-language data flow)  
 - SelfTune plugin (adaptive control logic)  
 - Link plugin (relay + policy layer)  
-- Demo suite (01–10) and CI test matrix  
+- Demo suite (01–9) and CI test matrix  
 
 The **Enterprise Pack** adds optional capabilities for organizations that require  
 advanced security, compliance, or production-grade observability.
