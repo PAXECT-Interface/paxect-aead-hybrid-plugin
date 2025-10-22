@@ -20,7 +20,8 @@
 
 # 🌐 **PAXECT AEAD Hybrid Plugin — Authenticated Encryption for Every Platform**
 
-> Status: **v1.0.0 — Initial Public Release** (see Releases)
+**Status:** v1.0.0 — Initial Public Release — October 22, 2025
+
 
 ## 🧩 Overview
 
