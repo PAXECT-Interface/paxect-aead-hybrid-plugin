@@ -22,6 +22,7 @@
 
 **Status:** v1.0.0 — Initial Public Release — October 22, 2025
 
+" Deterministic, offline-first, and reproducible — built for secure data pipelines and NIS2-ready digital hygiene.”
 
 ## 🧩 Overview
 
